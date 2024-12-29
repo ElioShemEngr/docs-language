@@ -1,22 +1,27 @@
 # JavaScript Cheatsheet
 
-## Estructura del Cheatsheet
-1. Introducción
-2. Variables y Tipos de Datos
-3. Operadores
-4. Estructuras de Control
-5. Funciones
-6. Objetos y Arrays
-7. Programación Orientada a Objetos (POO)
-8. Manipulación del DOM
-9. Promesas y Async/Await
-10. ES6+ (Novedades y características avanzadas)
-11. Módulos y Herramientas
-12. Buenas Prácticas y Patrones
+## Indice del Cheatsheet
+1. Introducción [Link](#1-introducción)
+2. Variables y Tipos de Datos [Link](#2-variables-y-tipos-de-datos)
+3. Operadores ([Link](#3-operadores))
+4. Estructuras de Control [Link](#4-estructuras-de-control)
+5. Funciones [Link](#5-funciones)
+6. Objetos y Arrays [Link](#6-objetos-y-arrays)
+7. Programación Orientada a Objetos (POO) [Link](#7-programación-orientada-a-objetos)
+8. Manipulación del DOM [Link](#8-manipulación-del-dom)
+9. Promesas y Async/Await [Link](#9-promesas-y-asyncawait)
+10. ES6+ (Novedades y características avanzadas) [Link](#10-es6-características-avanzadas)
+11. Módulos y Herramientas [Link](#11-módulos)
+12. Buenas Prácticas y Patrones [Link](#12-buenas-prácticas)
 
+## Referencias
+### Documentacion de JavaScript en Español:
+https://developer.mozilla.org/es/docs/Web/JavaScript
 
 ## 1. Introducción
 JavaScript es un lenguaje de programación ligero, interpretado y orientado a objetos, ampliamente utilizado para el desarrollo web.
+
+[Ir a Inicio](#indice-del-cheatsheet)
 
 ## 2. Variables y Tipos de Datos
 
@@ -37,9 +42,14 @@ let indefinido;          // Undefined
 let nulo = null;         // Null
 let simbolo = Symbol(); // Symbol
 
-// Objeto
-let objeto = { clave: "valor" };
+//Compuestos
+let objeto = { clave: "valor" }; // Objeto
+let array = [item1, item2, item3, item4] // Array
+let function () {} // Funcion
+let Class {} // Clase
 ```
+
+[Ir a Inicio](#indice-del-cheatsheet)
 
 ## 3. Operadores
 
@@ -76,7 +86,9 @@ incremento++; // 6
 let concatenado = "Hola" + " Mundo"; // "Hola Mundo"
 ```
 
-## 4. Estructuras de Control
+[Ir a Inicio](#indice-del-cheatsheet)
+
+# 4. Estructuras de Control
 
 ### Condicionales
 ```javascript
@@ -124,39 +136,121 @@ for (let clave in objeto) {
 }
 ```
 
+[Ir a Inicio](#indice-del-cheatsheet)
+
 ## 5. Funciones
 
-### Declaración
+### Funcion Declarada simple e Invocacion
 ```javascript
-function sumar(a, b) {
-    return a + b;
+// Funcion Declarada
+function nameFunc() {
+    console.log("Uno");
+    console.log("Dos");
+    console.log("Tres");
 }
+
+//Invocacion
+nameFunc();
+```
+
+### Funcion Declarada con parametros y valor de retorno
+```javascript
+// Funcion Declarada con Parametros 
+function sumar(a, b) {
+    return a + b; // Valor de retorno
+};
+
+// Invocacion con Console.log() 
 console.log(sumar(2, 3));
 ```
 
+### Funcion Declarada con Parámetros por Defecto
+```javascript
+// Funcion Declarada con Parametros por Defecto
+function saludo(nombre = "Invitado") {
+    console.log(`Hola, ${nombre}`);
+};
+
+saludo();  // $> Hola Invitado
+```
+> Nota: Las **funciones declaradas** pueden ser invocadas antes de su declaracion, es decir, su ambito es global.
+
+
+### Funcion Expresada / Anonima
+```javascript
+// Funcion Expresada en una constante
+const nameFunc = function () {
+    console.log("Esto se imprime");
+};
+
+nameFunc();
+```
+> Nota: Las **funciones expresadas** no pueden ser invocadas antes de su declaracion.
+
 ### Funciones Flecha
+```javascript
+const nameFunc = () => {
+    console.log("Esto se imprime");
+};
+
+nameFunc();
+```
+
+### Funciones Flecha con Parametros
 ```javascript
 const sumar = (a, b) => a + b;
 console.log(sumar(2, 3));
 ```
+> Nota: Las **funciones flechas** no pueden ser invocadas antes de su declaracion.
 
-### Parámetros por Defecto
-```javascript
-function saludo(nombre = "Invitado") {
-    console.log(`Hola, ${nombre}`);
-}
-saludo();
-```
+[Ir a Inicio](#indice-del-cheatsheet)
 
 ## 6. Objetos y Arrays
 
 ### Arrays
 ```javascript
+// Declaracion de Array
 let frutas = ["Manzana", "Banana", "Cereza"];
-frutas.push("Durazno"); // Añadir
-frutas.pop();            // Eliminar último
+
 console.log(frutas);
+
+/*
+> Indexacion de valores en Array :
+[0] = "Manzana"
+[1] = "Banana"
+[2] = "Cereza"
+*/
+
+// Acceder al valor por indice
+console.log(frutas[0]);
+console.log(frutas[2]);
+
+// Propiedad
+console.log(frutas.length);
+
+// Metodos
+frutas.push("Durazno");   // Añadir elemento al final
+frutas.pop();            // Eliminar último elemento
+// Usaremos Console.log() para mostrar los resultados de muchos Metodos
+console.log(elements.join()); // Une todos los elementos
+console.log(frutas.includes("Banana")); // Buscar si un elemento esta incluido en el array
 ```
+
+Los arreglos se pueden declarar con `let` o `const` indistintamente.
+
+### Arrays Anidados (2D, 3D, etc)
+```javascript
+// Array 2D
+const array2d = [3, 5, 7, 9, [12, 24, 31]];
+// Acceder al valor por indice anidado 2D
+console.log(array2d[4][1]); // Muestra en consola: 24
+
+// Array 3D
+const array3d = [3, 5, 7, 9, [12, 24, 31, [105, 224, 237]]];
+// Acceder al valor por indice anidado 3D
+console.log(array2d[4][3][2]); // Muestra en consola: 237
+```
+
 
 ### Objetos
 ```javascript
@@ -169,6 +263,8 @@ let persona = {
 };
 persona.saludar();
 ```
+
+[Ir a Inicio](#indice-del-cheatsheet)
 
 ## 7. Programación Orientada a Objetos
 
@@ -193,6 +289,8 @@ let perro = new Perro("Firulais");
 perro.hacerSonido();
 ```
 
+[Ir a Inicio](#indice-del-cheatsheet)
+
 ## 8. Manipulación del DOM
 
 ### Selección de Elementos
@@ -213,6 +311,8 @@ document.querySelector("button").addEventListener("click", () => {
     alert("¡Botón clickeado!");
 });
 ```
+
+[Ir a Inicio](#indice-del-cheatsheet)
 
 ## 9. Promesas y Async/Await
 
@@ -243,6 +343,8 @@ async function obtenerDatos() {
 obtenerDatos();
 ```
 
+[Ir a Inicio](#indice-del-cheatsheet)
+
 ## 10. ES6+ (Características avanzadas)
 
 ### Destructuración
@@ -261,6 +363,8 @@ function sumar(...valores) {
 }
 ```
 
+[Ir a Inicio](#indice-del-cheatsheet)
+
 ## 11. Módulos
 
 ### Exportar e Importar
@@ -274,6 +378,10 @@ export function saludar() {
 import { saludar } from "./archivo.js";
 saludar();
 ```
+
+[Ir a Inicio](#indice-del-cheatsheet)
+
+
 
 ## 12. Buenas Prácticas
 
@@ -293,4 +401,4 @@ saludar();
 - Evita bloqueos en el hilo principal.
 - Usa técnicas como debounce y throttle.
 
----
+[Ir a Inicio](#indice-del-cheatsheet)
