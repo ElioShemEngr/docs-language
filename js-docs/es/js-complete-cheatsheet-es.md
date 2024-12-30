@@ -7,12 +7,13 @@
 4. Estructuras de Control [Link](#4-estructuras-de-control)
 5. Funciones [Link](#5-funciones)
 6. Objetos y Arrays [Link](#6-objetos-y-arrays)
-7. Programación Orientada a Objetos (POO) [Link](#7-programación-orientada-a-objetos)
-8. Manipulación del DOM [Link](#8-manipulación-del-dom)
-9. Promesas y Async/Await [Link](#9-promesas-y-asyncawait)
-10. ES6+ (Novedades y características avanzadas) [Link](#10-es6-características-avanzadas)
-11. Módulos y Herramientas [Link](#11-módulos)
-12. Buenas Prácticas y Patrones [Link](#12-buenas-prácticas)
+7. Manejo de Errores [Link](#7-manejo-de-errores)
+8. Programación Orientada a Objetos (POO) [Link](#8-programación-orientada-a-objetos)
+9. Manipulación del DOM [Link](#9-manipulación-del-dom)
+10. Promesas y Async/Await [Link](#10-promesas-y-asyncawait)
+11. ES6+ (Novedades y características avanzadas) [Link](#11-es6-características-avanzadas)
+12. Módulos y Herramientas [Link](#12-módulos)
+13. Buenas Prácticas y Patrones [Link](#13-buenas-prácticas)
 
 ## Referencias
 ### Documentacion de JavaScript en Español:
@@ -55,19 +56,19 @@ let Class {} // Clase
 
 ### Aritméticos
 ```javascript
-let suma = 5 + 3;        // 8
-let resta = 5 - 3;       // 2
+let suma = 5 + 3;           // 8
+let resta = 5 - 3;          // 2
 let multiplicacion = 5 * 3; // 15
-let division = 5 / 3;    // 1.666...
-let modulo = 5 % 3;      // 2
+let division = 5 / 3;       // 1.666...
+let modulo = 5 % 3;         // 2
 ```
 
 ### Comparación
 ```javascript
 console.log(5 == "5");  // true (igualdad débil)
-console.log(5 === "5"); // false (estricta)
+console.log(5 === "5"); // false (estricta) (Uso recomendado)
 console.log(5 != "5");  // false
-console.log(5 !== "5"); // true
+console.log(5 !== "5"); // true (Uso recomendado)
 ```
 
 ### Lógicos
@@ -77,12 +78,24 @@ console.log(true || false); // true
 console.log(!true);         // false
 ```
 
-### Otros Operadores
+### Operadores Incremento y Decremento
 ```javascript
 let incremento = 5;
-incremento++; // 6
+
+// Incrementos y Decrementos
+incremento += 3; // 8
+incremento -= 2;
+incremento *= 2;
+incremento /= 2;
+
+// Incrementos y Decrementos Unitarios
+incremento++; // 6 (Uso recomendado)
 --incremento; // 5
 
+```
+
+### Operador Concatenacion
+``` javascript
 let concatenado = "Hola" + " Mundo"; // "Hola Mundo"
 ```
 
@@ -91,22 +104,63 @@ let concatenado = "Hola" + " Mundo"; // "Hola Mundo"
 # 4. Estructuras de Control
 
 ### Condicionales
+> Usando `if` 
+```javascript
+if (edad = 18) {
+    console.log("Tiene 18 años");
+}
+```
+
+> Usando `if` y `else`
 ```javascript
 if (edad >= 18) {
     console.log("Mayor de edad");
 } else {
     console.log("Menor de edad");
 }
-
-// Ternario
-let acceso = edad >= 18 ? "Permitido" : "Denegado";
 ```
 
-### Bucles
+> Usando `if`, `else if` y `else`
+```javascript
+if (edad >=18) {
+    console.log("Eres mayor de edad");
+} else if (edad >= 15) {
+    console.log("Eres adolescente");
+} else {
+    console.log("Eres niño");
+}
+```
+
+### Otras Condicionales
+```javascript
+// Operador Ternario
+//Variable = Condicion  ?    true     :     false   
+let acceso = edad >= 18 ? "Permitido" : "Denegado";
+console.log(acceso);
+
+// Switch
+switch (edad) { 
+    case 17:
+        console.log("Tienes 17 años");
+        break;
+    case 18:
+        console.log("Tienes 18 años");
+        break;
+    case 19:
+        console.log("Tienes 19 años");
+        break;
+    default:
+        console.log("Tienes otra edad");
+        break;
+}
+```
+
+
+### Bucles(Loops)
 ```javascript
 // for
 for (let i = 0; i < 5; i++) {
-    console.log(i);
+    console.log(i); // Devuelve : 1, 2, 3, 4, 5
 }
 
 // while
@@ -123,13 +177,19 @@ do {
     j++;
 } while (j < 5);
 
-// for...of
+// for...of (para Arrays)
 let array = [1, 2, 3];
 for (let elemento of array) {
     console.log(elemento);
 }
 
-// for...in
+// for...of (para otros iterables)
+let saludo = "Hola Mundo";
+for (let elemento of saludo) {
+    console.log(elemento);
+}
+
+// for...in (solo para Objects)
 let objeto = { a: 1, b: 2 };
 for (let clave in objeto) {
     console.log(clave, objeto[clave]);
@@ -210,7 +270,7 @@ console.log(sumar(2, 3));
 ### Arrays
 ```javascript
 // Declaracion de Array
-let frutas = ["Manzana", "Banana", "Cereza"];
+const frutas = ["Manzana", "Banana", "Cereza"];
 
 console.log(frutas);
 
@@ -253,20 +313,88 @@ console.log(array2d[4][3][2]); // Muestra en consola: 237
 
 
 ### Objetos
+> En JavaScript todo es un Objeto.
 ```javascript
-let persona = {
-    nombre: "Juan",
-    edad: 30,
+//Declaracion de Objetos
+const persona = {
+    // Aributos de un objeto
+    nombre: "Eliot", // String como atributo
+    apellido: "Solis",
+    edad: 30, // Number como atributo
+    soltero: true, // Boolean como atributo
+    pasatiempos: ["Correr", "Leer", "Escuchar música", "Programar"], // Arreglo como atributo
+    contacto: { // Objeto como atributo
+        email: "ejemplo@email.com",
+        twitter: "@ejemplo",
+        movil: "123456789"
+    },
+
+    //Metodos de un objeto
     saludar() {
         console.log("Hola, soy " + this.nombre);
+    },
+
+    despedirse() {
+        console.log("Adios, me voy a " + this.pasatiempos[0]);
     }
+
 };
+
+// Acceso a los atributos de un objeto
+console.log(persona.nombre);
+console.log(persona.soltero);
+console.log(persona.pasatiempos[3]);
+console.log(persona.contacto.email);
+
+// Acceso a los Metodos de un objeto
 persona.saludar();
+persona.despedirse();
+```
+
+## Metodos Generales de Objetos
+```javascript
+console.log(Object.keys(persona));       // Devuelve las keys del objecto persona
+console.log(Object.values(persona));     // Devuelve los valores del objeto persona
+
+console.log(persona.hasOwnProperty("nombre"));  // Devuelve true si la clave esta en el objeto
+console.log(persona.hasOwnProperty("nacimiento"));  
+ ```
+
+[Ir a Inicio](#indice-del-cheatsheet)
+
+## 7. Manejo de Errores
+> `try` y `catch`
+```javascript
+try {
+    // Codigo a probar
+    console.log("Hola");
+    console.log("Mundo");
+    console.log("Adios");
+} catch (error) {
+   // Codigo a ejecutar si hay un error
+    console.log("Error: " + error);
+}
+```
+
+> `try` , `catch` y `finally`
+```javascript
+try {
+    // Codigo a probar
+    console.log("Hola");
+    console.log("Mundo");
+    console.log("Adios");
+} catch (error) {
+   // Codigo a ejecutar si hay un error
+    console.log("Error: " + error);
+} finally {
+    // Codigo a ejecutar siempre
+    console.log("Fin del programa");
+}
 ```
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 7. Programación Orientada a Objetos
+## 8. Programación Orientada a Objetos
 
 ### Clases
 ```javascript
@@ -291,7 +419,7 @@ perro.hacerSonido();
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 8. Manipulación del DOM
+## 9. Manipulación del DOM
 
 ### Selección de Elementos
 ```javascript
@@ -314,7 +442,7 @@ document.querySelector("button").addEventListener("click", () => {
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 9. Promesas y Async/Await
+## 10. Promesas y Async/Await
 
 ### Promesas
 ```javascript
@@ -345,7 +473,7 @@ obtenerDatos();
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 10. ES6+ (Características avanzadas)
+## 11. ES6+ (Características avanzadas)
 
 ### Destructuración
 ```javascript
@@ -365,7 +493,7 @@ function sumar(...valores) {
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 11. Módulos
+## 12. Módulos
 
 ### Exportar e Importar
 ```javascript
@@ -383,7 +511,7 @@ saludar();
 
 
 
-## 12. Buenas Prácticas
+## 13. Buenas Prácticas
 
 ### Código Limpio
 - Usa nombres de variables descriptivos.
