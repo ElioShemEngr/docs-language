@@ -3,7 +3,7 @@
 ## Indice del Cheatsheet
 1. Introducción [Link](#1-introducción)
 2. Variables y Tipos de Datos [Link](#2-variables-y-tipos-de-datos)
-3. Operadores ([Link](#3-operadores))
+3. Operadores [Link](#3-operadores)
 4. Estructuras de Control [Link](#4-estructuras-de-control)
 5. Funciones [Link](#5-funciones)
 6. Objetos y Arrays [Link](#6-objetos-y-arrays)
@@ -258,8 +258,13 @@ nameFunc();
 
 ### Funciones Flecha con Parametros
 ```javascript
+// Ejemplo 01
 const sumar = (a, b) => a + b;
 console.log(sumar(2, 3));
+
+// Ejemplo 02
+const numeros = [1,2,3,4,5];
+numeros.forEach((item, index) => console.log(`Indice ${index}: ${item}`)); 
 ```
 > Nota: Las **funciones flechas** no pueden ser invocadas antes de su declaracion.
 
@@ -294,6 +299,94 @@ frutas.pop();            // Eliminar último elemento
 // Usaremos Console.log() para mostrar los resultados de muchos Metodos
 console.log(elements.join()); // Une todos los elementos
 console.log(frutas.includes("Banana")); // Buscar si un elemento esta incluido en el array
+
+// Ejemplo de Otros metodos de los Arrays
+const numeros = [1,2,3,4,5];
+
+// El método forEach() ejecuta la función indicada una vez por cada elemento del array.
+numeros.forEach((item, index) => console.log(`Indice ${index}: ${item}`)); 
+
+// El método map() crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+const numerosDoble = numeros.map(n => n * 2);
+console.log(numerosDoble);
+
+// El método filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.
+const numerosPares = numeros.filter(n => n % 2 == 0);
+console.log(numerosPares);
+
+// El método reduce() aplica una función a un acumulador y a cada valor de un array (de izquierda a derecha) para reducirlo a un único valor.
+const numerosReduce = numeros.reduce((a,b) => a + b);
+console.log(numerosReduce);
+
+const numerosReduce2 = numeros.reduce((a,b) => a + b, 100);
+console.log(numerosReduce2);
+
+// El método reduceRight() aplica una función a un acumulador y a cada valor de un array (de derecha a izquierda) para reducirlo a un único valor.
+const numerosReduce3 = numeros.reduceRight((a,b) => a + b);
+console.log(numerosReduce3);
+
+const numerosReduce4 = numeros.reduceRight((a,b) => a + b, 100);
+console.log(numerosReduce4);
+
+// El método find() devuelve el primer elemento del array que cumple con la función de prueba proporcionada. En caso contrario devuelve undefined.
+const numerosFind = numeros.find(n => n > 3);
+console.log(numerosFind);
+
+// El método findIndex() devuelve el índice del primer elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.
+const numerosFindIndex = numeros.findIndex(n => n > 3);
+console.log(numerosFindIndex);
+
+// El método some() comprueba si al menos un elemento del array cumple con la condición implementada por la función proporcionada. Devuelve true si se cumple la condición, en caso contrario false.
+const numerosSome = numeros.some(n => n > 3);
+console.log(numerosSome);
+
+// El método every() de las instancias de Array prueba si todos los elementos del arreglo pasan la prueba implementada por la función proporcionada. Devuelve un valor booleano.
+const numerosEvery = numeros.every(n => n > 3);
+console.log(numerosEvery);
+
+// El método includes() determina si un array incluye un determinado elemento, devuelve true o false según corresponda.
+const numerosIncludes = numeros.includes(3);
+console.log(numerosIncludes);
+
+// El método indexOf() devuelve el primer índice en el que se puede encontrar un elemento dado en el array, ó -1 si el elemento no esta presente.
+const numerosIndexOf = numeros.indexOf(3);
+console.log(numerosIndexOf);
+
+// El método lastIndexOf() devuelve el último índice en el que se puede encontrar un elemento dado en el array, ó -1 si el elemento no esta presente.
+const numerosLastIndexOf = numeros.lastIndexOf(3);
+console.log(numerosLastIndexOf);
+
+// El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.
+const numerosJoin = numeros.join(" / ");
+console.log(numerosJoin);
+
+// El método reverse() invierte el orden de los elementos de un array in place. El primer elemento pasa a ser el último y el último pasa a ser el primero.
+const numerosReverse = numeros.reverse();
+console.log(numerosReverse);
+
+// El método sort() ordena los elementos de un arreglo (array) localmente y devuelve el arreglo ordenado. La ordenación no es necesariamente estable. Por defecto, el array se ordena en orden ascendente.
+const numerosSort = numeros.sort();
+console.log(numerosSort);
+
+// El método slice() devuelve una copia de parte de un array a partir de un subarray determinado.
+const numerosSlice = numeros.slice(2,4);
+console.log(numerosSlice);
+
+// El método splice() cambia el contenido de un array eliminando elementos existentes y/o agregando nuevos elementos.
+const numerosSplice = numeros.splice(1,3);
+console.log(numerosSplice);
+
+// El método concat() se utiliza para unir dos o más arrays. Este método no cambia los arrays existentes, sino que devuelve un nuevo array.
+const numerosConcat = numeros.concat([6,7,8,9,10]);
+console.log(numerosConcat);
+
+// El método fill() llena todos los elementos del array desde el índice inicial hasta el índice final con un valor estático.
+const numerosFill = numeros.fill(0,2,4);
+console.log(numerosFill);
+
+// El método copyWithin() copia una secuencia de elementos de un array dentro de la misma array.
+const numerosCopyWithin = numeros.copyWithin(1,2,4);
+console.log(numerosCopyWithin);
 ```
 
 Los arreglos se pueden declarar con `let` o `const` indistintamente.
@@ -349,6 +442,38 @@ console.log(persona.contacto.email);
 // Acceso a los Metodos de un objeto
 persona.saludar();
 persona.despedirse();
+
+
+// Ejemplos de otros Metodos de Objetos
+
+// El método Object.keys() devuelve un array de las propiedades names de un objeto, en el mismo orden como se obtienen en un loop normal.
+console.log(Object.keys(persona));
+
+// El método Object.values() devuelve un array con los valores correspondientes a las propiedades enumerables de un objeto.
+console.log(Object.values(persona));
+
+// El método Object.entries() devuelve una matriz de pares propios de una propiedad enumerable [key, value] de un objeto dado.
+console.log(Object.entries(persona));
+
+// El método Object.assign() se utiliza para copiar los valores de todas las propiedades propias enumerables de uno o más objetos fuente a un objeto destino. Devuelve el objeto destino.
+const persona2 = Object.assign({}, persona);
+console.log(persona2);
+
+// El método Object.freeze() congela un objeto: es decir, previene que se le puedan añadir nuevas propiedades, eliminar propiedades existentes o cambiar el valor de las propiedades existentes. En resumen, el objeto queda inmutable.
+Object.freeze(persona);
+persona.nombre = "Juan";
+console.log(persona); // No se puede modificar
+
+// El método Object.seal() previene que se añadan o eliminen propiedades de un objeto, aunque sí se pueden modificar las propiedades existentes.
+Object.seal(persona);
+persona.nombre = "Juan";
+console.log(persona); // Se puede modificar
+
+// El método Object.is() determina si dos valores son los mismos valores. Dos valores son iguales si son el mismo valor. Dos valores son idénticos si son el mismo valor y del mismo tipo.
+console.log(Object.is(1,1));
+console.log(Object.is(1,"1"));
+
+
 ```
 
 ## Metodos Generales de Objetos
@@ -477,15 +602,47 @@ obtenerDatos();
 
 ### Destructuración
 ```javascript
-let { nombre, edad } = { nombre: "Juan", edad: 30 };
-console.log(nombre, edad);
+// Destructuracion en Arrays
+const numeros = [1, 2, 3, 4];
+const [uno, dos, tres, cuatro] = numeros; // Destructuracion
+
+// Destructuracion en Objetos
+const persona = {nombre: "Juan", apellido: "Solis", edad: 30 };
+let {nombre, apellido, edad} = persona; // Destructuracion
+console.log(nombre, apellido, edad);
+
+// Destructuracion en declaracion
+const {nombre, apellido, edad} = {nombre: "Juan", apellido: "Solis", edad: 30 };
 ```
 
 ### Spread y Rest
 ```javascript
+// Parametro Rest
+function sumar(a,b, ...c) {
+    let resultado = a + b;
+    
+    c.forEach(function(n) {
+        resultado += n;
+    });
+
+    return resultado;
+}
+
+console.log(sumar(1,2));        // 3
+console.log(sumar(1,2,3));      // 6
+console.log(sumar(1,2,3,4));    // 10
+
+// Operador Spread
+// Ejemplo 01
+const arr1 = [1,2,3,4,5];
+const arr2 = [6,7,8,9,10];
+const arr3 = [...arr1, ...arr2]; 
+
+//Ejemplo 02
 let numeros = [1, 2, 3];
 let copia = [...numeros];
 
+// Ejemplo 03
 function sumar(...valores) {
     return valores.reduce((a, b) => a + b);
 }
