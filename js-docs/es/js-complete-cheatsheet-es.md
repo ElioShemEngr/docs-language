@@ -8,12 +8,13 @@
 5. Funciones [Link](#5-funciones)
 6. Objetos y Arrays [Link](#6-objetos-y-arrays)
 7. Manejo de Errores [Link](#7-manejo-de-errores)
-8. Programación Orientada a Objetos (POO) [Link](#8-programación-orientada-a-objetos)
-9. Manipulación del DOM [Link](#9-manipulación-del-dom)
-10. Promesas y Async/Await [Link](#10-promesas-y-asyncawait)
-11. ES6+ (Novedades y características avanzadas) [Link](#11-es6-características-avanzadas)
-12. Módulos y Herramientas [Link](#12-módulos)
-13. Buenas Prácticas y Patrones [Link](#13-buenas-prácticas)
+8. Prototipos [Link](#8-prototipos)
+9. Programación Orientada a Objetos (POO) [Link](#9-programación-orientada-a-objetos)
+10. Manipulación del DOM [Link](#10-manipulación-del-dom)
+11. Promesas y Async/Await [Link](#11-promesas-y-asyncawait)
+12. ES6+ (Novedades y características avanzadas) [Link](#12-es6-características-avanzadas)
+13. Módulos y Herramientas [Link](#13-módulos)
+14. Buenas Prácticas y Patrones [Link](#14-buenas-prácticas)
 
 ## Referencias
 ### Documentacion de JavaScript en Español:
@@ -519,7 +520,56 @@ try {
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 8. Programación Orientada a Objetos
+# 8. Prototipos
+
+## **Conceptos Clave**
+- **Prototipo Base (`Object.prototype`)**  
+  Todos los objetos en JavaScript heredan de `Object.prototype`.
+  - Métodos comunes: `.toString()`, `.hasOwnProperty()`.
+  
+- **Cadena de Prototipos (Prototype Chain)**  
+  Si una propiedad no se encuentra en el objeto, se busca en su prototipo, y así sucesivamente hasta llegar a `null`.
+
+- **Herencia Prototípica**  
+  Permite compartir propiedades y métodos entre objetos sin necesidad de clases.
+
+---
+
+## **Métodos Principales**
+
+| Método                        | Descripción                                                |
+|-------------------------------|------------------------------------------------------------|
+| `Object.create(proto)`        | Crea un objeto con el prototipo especificado.              |
+| `Object.setPrototypeOf(obj, proto)` | Establece el prototipo de un objeto.                   |
+| `Object.getPrototypeOf(obj)`  | Obtiene el prototipo de un objeto.                         |
+
+---
+
+## **Ejemplo Práctico**
+
+```javascript
+// Crear un objeto prototipo
+const animal = {
+  tipo: 'Desconocido',
+  hacerSonido() {
+    console.log(`${this.tipo} hace un sonido.`);
+  }
+};
+
+// Crear un objeto que hereda de animal
+const perro = Object.create(animal);
+perro.tipo = 'Perro';
+perro.hacerSonido(); // Salida: Perro hace un sonido.
+
+// Verificar la cadena de prototipos
+console.log(Object.getPrototypeOf(perro) === animal); // true
+console.log(perro.hasOwnProperty('tipo')); // true
+console.log(perro.hasOwnProperty('hacerSonido')); // false (heredado)
+```
+
+[Ir a Inicio](#indice-del-cheatsheet)
+
+## 9. Programación Orientada a Objetos
 
 ### Clases
 ```javascript
@@ -544,7 +594,7 @@ perro.hacerSonido();
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 9. Manipulación del DOM
+## 10. Manipulación del DOM
 
 ### Selección de Elementos
 ```javascript
@@ -567,7 +617,7 @@ document.querySelector("button").addEventListener("click", () => {
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 10. Promesas y Async/Await
+## 11. Promesas y Async/Await
 
 ### Promesas
 ```javascript
@@ -598,7 +648,7 @@ obtenerDatos();
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 11. ES6+ (Características avanzadas)
+## 12. ES6+ (Características avanzadas)
 
 ### Destructuración
 ```javascript
@@ -650,7 +700,7 @@ function sumar(...valores) {
 
 [Ir a Inicio](#indice-del-cheatsheet)
 
-## 12. Módulos
+## 13. Módulos
 
 ### Exportar e Importar
 ```javascript
@@ -668,7 +718,7 @@ saludar();
 
 
 
-## 13. Buenas Prácticas
+## 14. Buenas Prácticas
 
 ### Código Limpio
 - Usa nombres de variables descriptivos.
