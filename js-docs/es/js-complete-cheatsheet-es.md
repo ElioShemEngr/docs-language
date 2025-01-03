@@ -567,6 +567,83 @@ console.log(perro.hasOwnProperty('tipo')); // true
 console.log(perro.hasOwnProperty('hacerSonido')); // false (heredado)
 ```
 
+## Funciones Constructores Prototipicas
+```javascript
+// Funcion constructora (NO RECOMENDADA)
+// NO SE RECOMIENDA ya que los objetos instanciados duplican los metodos del objeto padre.
+function Animal(nombre, genero) {
+    this.nombre = nombre;
+    this.genero = genero;
+
+    this.sonar= function(){
+        console.log('Emitiendo Sonido...');
+    };
+
+    this.saludar = function(){
+        console.log(`Hola mi nombre es ${this.nombre}`);
+    };
+};
+
+
+const perro = new Animal("Tobby", "Macho");
+const gato = new Animal("Alina", "Hembra");
+
+console.log(perro.nombre);
+perro.sonar();
+perro.saludar();
+
+
+// Funcion Constructora (FORMA RECOMENDADA)
+function Animal(nombre, genero) {
+    this.nombre = nombre;
+    this.genero = genero;
+
+};
+
+Animal.prototype.sonar= function(){
+    console.log('Emitiendo Sonido...');
+};
+
+Animal.prototype.saludar = function(){
+    console.log(`Hola mi nombre es ${this.nombre}`);
+};
+
+const perro = new Animal("Tobby", "Macho");
+const gato = new Animal("Alina", "Hembra");
+
+console.log(perro.nombre);
+perro.sonar();
+perro.saludar();
+```
+
+### Herencia Prototipica
+```javascript
+//Herencia Prototipica
+function Perro(nombre, categoria, tamanio) {
+    this.super = Animal;
+    this.super(nombre, categoria);
+    this.tamanio = tamanio;
+};
+
+// Herencia (Perro hereda de Animal)
+Perro.prototype = new Animal();
+
+//Sobrescritura de metodos del Prototipo Padre
+Perro.prototype.sonar = function () {
+    console.log('Soy un perro mi sonido es un ladrido');
+};
+
+Perro.prototype.ladrar = function () {
+    console.log('Guaf Guaf Guaf!');
+};
+
+const miPerro = new Perro("Tobby", "Macho", "Mediano");
+console.log(miPerro.nombre);
+miPerro.sonar();
+miPerro.saludar();
+```
+
+
 [Ir a Inicio](#indice-del-cheatsheet)
 
 ## 9. Programación Orientada a Objetos

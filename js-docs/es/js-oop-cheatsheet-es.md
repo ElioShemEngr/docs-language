@@ -17,7 +17,7 @@ class Persona {
   }
 }
 
-// Ejemplo de uso
+// Ejemplo de uso (Objeto)
 const persona1 = new Persona('Juan', 30);
 persona1.saludar();
 ```
