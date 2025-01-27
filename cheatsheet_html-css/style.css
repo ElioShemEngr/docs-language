@@ -1,0 +1,153 @@
+/* Estilo global para la página */
+/* El selector universal (*) aplica a todos los elementos del documento */
+* {
+    margin: 0; /* Elimina los márgenes predeterminados */
+    padding: 0; /* Elimina los rellenos predeterminados */
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño total del elemento */
+}
+
+/* Estilo para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Define la fuente predeterminada */
+    line-height: 1.6; /* Ajusta la altura de las líneas de texto */
+    background-color: #f4f4f4; /* Color de fondo claro */
+    color: #333; /* Color de texto oscuro */
+    margin: 0; /* Elimina el margen del body */
+    padding: 0; /* Elimina el padding del body */
+}
+
+/* Encabezado principal */
+header {
+    background-color: #0078d7; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Navegación principal dentro del encabezado */
+header nav ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    display: flex; /* Usa flexbox para organizar los elementos en fila */
+    justify-content: center; /* Centra los elementos en el contenedor */
+    padding: 0; /* Elimina el padding de la lista */
+}
+
+header nav ul li {
+    margin: 0 15px; /* Espaciado horizontal entre los enlaces */
+}
+
+header nav ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: white; /* Color blanco para los enlaces */
+    font-weight: bold; /* Texto en negrita */
+}
+
+header nav ul li a:hover {
+    text-decoration: underline; /* Subraya los enlaces al pasar el ratón */
+}
+
+/* Secciones principales */
+section {
+    padding: 20px; /* Espaciado interno */
+    margin: 10px auto; /* Centrado con margen superior/inferior */
+    background-color: white; /* Fondo blanco */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    max-width: 800px; /* Ancho máximo del contenido */
+}
+
+/* Estilo para tablas */
+table {
+    width: 100%; /* Tabla ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Elimina espacios entre bordes */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+th, td {
+    padding: 10px; /* Espaciado interno en celdas */
+    text-align: left; /* Alineación del texto a la izquierda */
+    border: 1px solid #ccc; /* Borde alrededor de las celdas */
+}
+
+/* Botón dentro del formulario */
+button {
+    background-color: #0078d7; /* Fondo azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+button:hover {
+    background-color: #005bb5; /* Color más oscuro al pasar el ratón */
+}
+
+/* Formularios */
+form label {
+    display: block; /* Hace que las etiquetas ocupen toda la línea */
+    margin-bottom: 5px; /* Espaciado inferior para separación */
+    font-weight: bold; /* Etiquetas en negrita */
+}
+
+form input, form textarea {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espaciado inferior */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Aside (barra lateral) */
+aside {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 15px; /* Espaciado interno */
+    margin: 10px; /* Margen externo */
+}
+
+/* Footer (pie de página) */
+footer {
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Estilo para enlaces en el pie de página */
+footer a {
+    color: #0078d7; /* Azul para los enlaces */
+    text-decoration: none; /* Elimina subrayado */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+}
+
+/* Estilo multimedia */
+audio, video {
+    display: block; /* Asegura que ocupen toda la línea */
+    margin: 20px auto; /* Centra los elementos horizontalmente */
+    max-width: 100%; /* Escala el elemento para que no exceda el ancho del contenedor */
+}
+
+/* Contenedor usando Flexbox */
+.container-flex {
+    display: flex; /* Activa el modelo de caja flexible */
+    justify-content: space-between; /* Distribuye elementos con espacio entre ellos */
+    align-items: center; /* Alinea elementos en el eje vertical */
+}
+
+/* Contenedor usando Grid */
+.container-grid {
+    display: grid; /* Activa el modelo de cuadrícula */
+    grid-template-columns: repeat(3, 1fr); /* Define 3 columnas iguales */
+    gap: 10px; /* Espacio entre elementos de la cuadrícula */
+}
+
+.container-grid div {
+    background-color: #f4f4f4; /* Fondo claro */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde gris claro */
+    text-align: center; /* Texto centrado */
+}

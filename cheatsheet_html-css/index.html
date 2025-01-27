@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- Declaración del tipo de documento: especifica que se está utilizando HTML5 -->
+<html lang="es">
+<!-- Raíz del documento HTML. El atributo 'lang' define el idioma del contenido -->
+
+<head>
+    <!-- Contiene metadatos e información para el navegador -->
+    <meta charset="UTF-8">
+    <!-- Especifica la codificación de caracteres (UTF-8 permite usar caracteres especiales) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ajusta la escala y diseño para dispositivos móviles -->
+    <meta name="description" content="Página con todos los elementos HTML">
+    <!-- Proporciona una descripción breve de la página para SEO -->
+    <title>Ejemplo Completo de HTML</title>
+    <!-- Define el título que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Vincula una hoja de estilo externa para dar diseño a la página -->
+</head>
+
+<body>
+    <!-- Contenedor principal de todos los elementos visibles en la página -->
+
+    <header>
+        <!-- Encabezado de la página: incluye títulos y navegación principal -->
+        <h1>Bienvenido a Mi Página Completa</h1>
+        <!-- Título principal de la página -->
+        <nav>
+            <!-- Barra de navegación -->
+            <ul>
+                <!-- Lista desordenada para los enlaces del menú -->
+                <li><a href="#seccion1">Inicio</a></li>
+                <!-- Enlace ancla que apunta a la sección 1 -->
+                <li><a href="#seccion2">Acerca de</a></li>
+                <!-- Enlace ancla que apunta a la sección 2 -->
+                <li><a href="#seccion3">Contacto</a></li>
+                <!-- Enlace ancla que apunta a la sección 3 -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Contenedor principal del contenido de la página -->
+
+        <section id="seccion1">
+            <!-- Sección temática individual -->
+            <h2>Sección 1: Introducción</h2>
+            <!-- Título secundario -->
+            <p>
+                <!-- Párrafo de texto -->
+                Este es un párrafo con <strong>texto en negrita</strong>, <em>cursiva</em> y 
+                un <a href="https://www.example.com" target="_blank">enlace externo</a>.
+                <!-- Etiquetas para formato de texto y enlaces -->
+            </p>
+            <img src="imagen.jpg" alt="Descripción de la imagen">
+            <!-- Imagen con texto alternativo en caso de no cargar -->
+        </section>
+
+        <section id="seccion2">
+            <!-- Segunda sección temática -->
+            <h2>Sección 2: Tablas y Listas</h2>
+
+            <table>
+                <!-- Tabla para organizar datos en filas y columnas -->
+                <thead>
+                    <!-- Cabecera de la tabla -->
+                    <tr>
+                        <!-- Fila de la cabecera -->
+                        <th>Nombre</th>
+                        <!-- Celda de cabecera (en negrita por defecto) -->
+                        <th>Edad</th>
+                        <th>País</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cuerpo principal de la tabla -->
+                    <tr>
+                        <!-- Fila de datos -->
+                        <td>Juan</td>
+                        <!-- Celda con datos -->
+                        <td>25</td>
+                        <td>Perú</td>
+                    </tr>
+                    <tr>
+                        <td>Maria</td>
+                        <td>30</td>
+                        <td>España</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Listas</h3>
+            <ul>
+                <!-- Lista desordenada para elementos relacionados -->
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+            </ul>
+
+            <ol>
+                <!-- Lista ordenada para elementos secuenciales -->
+                <li>Primero</li>
+                <li>Segundo</li>
+                <li>Tercero</li>
+            </ol>
+        </section>
+
+        <section id="seccion3">
+            <!-- Tercera sección temática -->
+            <h2>Sección 3: Formularios</h2>
+            <form action="/enviar" method="post">
+                <!-- Formulario para recopilar datos de usuario -->
+                <label for="nombre">Nombre:</label>
+                <!-- Etiqueta descriptiva para el campo de texto -->
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                <!-- Campo de texto para ingresar el nombre -->
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo" required>
+                <!-- Campo para ingresar correo electrónico -->
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
+                <!-- Área de texto para mensajes largos -->
+
+                <fieldset>
+                    <!-- Agrupa campos relacionados -->
+                    <legend>Opciones:</legend>
+                    <!-- Título del grupo de campos -->
+                    <label>
+                        <input type="checkbox" name="opcion1" value="opcion1"> Opción 1
+                    </label>
+                    <label>
+                        <input type="checkbox" name="opcion2" value="opcion2"> Opción 2
+                    </label>
+                </fieldset>
+
+                <button type="submit">Enviar</button>
+                <!-- Botón para enviar el formulario -->
+            </form>
+        </section>
+
+        <article>
+            <!-- Contenido independiente, como una publicación o noticia -->
+            <h3>Un Artículo Relacionado</h3>
+            <p>Contenido del artículo independiente relacionado con la temática.</p>
+        </article>
+    </main>
+
+    <aside>
+        <!-- Contenido complementario o relacionado -->
+        <h3>Noticias Relacionadas</h3>
+        <p>Últimas actualizaciones sobre el tema.</p>
+    </aside>
+
+    <footer>
+        <!-- Pie de página con información adicional -->
+        <p>&copy; 2024 Elio. Todos los derechos reservados.</p>
+        <address>
+            <!-- Información de contacto -->
+            Escrito por: <a href="mailto:elio@ejemplo.com">Elio</a>
+        </address>
+    </footer>
+
+    <!-- Elementos multimedia -->
+    <audio controls>
+        <!-- Elemento para reproducir audio -->
+        <source src="audio.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <video controls width="400">
+        <!-- Elemento para reproducir video -->
+        <source src="video.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+
+    <div>
+        <!-- Contenedor genérico para agrupar elementos -->
+        <p>Esto es un contenedor genérico para agrupar contenido.</p>
+    </div>
+</body>
+
+</html>
