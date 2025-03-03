@@ -3,9 +3,13 @@
 ### 0. REFERENCIAS
 
 My compiler :
+Compila el codigo en tu navegador
+
 https://www.mycompiler.io/
 
 Diagrams :
+Crea diagramas para tus proyectos
+
 https://app.diagrams.net/
 
 
